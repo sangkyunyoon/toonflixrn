@@ -18,7 +18,9 @@ import
   View,
 } from 'react-native';
 
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+//import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
 import
 {
   Colors,
@@ -162,6 +164,7 @@ function App (): React.JSX.Element
             {
               backgroundColor: Colors.darker,
               borderRadius: 10,
+              overflow: 'hidden',
             },
           ] }>
             {/* child: Padding */ }
@@ -200,7 +203,7 @@ function App (): React.JSX.Element
                     <Text style={ { fontSize: 18, color: Colors.light, paddingLeft: 10 } }>EUR</Text>
                   </View>
                 </View>
-                <FontAwesome style={ [{ transform: [{ scale: 2.2 }], transformOrigin: '20px 30px' }] } size={ 88 } name="euro" color={ Colors.white } />
+                <MaterialIcons style={ [{ transform: [{ scale: 2.2 }], transformOrigin: '20px 25px' }, { position: 'relative' }, { right: 50 }] } size={ 88 } name="euro" color={ Colors.white } />
               </View>
             </View>
           </View>

@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -6,8 +7,8 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
+import
+{
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -17,86 +18,15 @@ import {
   View,
 } from 'react-native';
 
-import {
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import
+{
   Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { MyButton } from './src/components/MyButton';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
+const styles = StyleSheet.create( {
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
@@ -113,6 +43,171 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
-});
+  container: {
+    flex: 1,
+    padding: 10,
+  },
+  box: {
+    flex: 1,
+    margin: 5,
+  },
+} );
+
+function App (): React.JSX.Element
+{
+  const isDarkMode = useColorScheme() === 'dark' ? true : false;
+  return (
+    <SafeAreaView style={ { backgroundColor: Colors.black, flex: 1 } }>
+      <StatusBar
+        barStyle={ isDarkMode ? 'light-content' : 'dark-content' }
+        backgroundColor={ Colors.black }
+      />
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={ [Colors.darker, {
+        }] }>
+        <View
+          style={ [
+            styles.container,
+          ] }>
+          <View style={ [
+            styles.container,
+            {
+              flexDirection: 'column',
+              justifyContent: 'flex-start',
+            },
+          ] }>
+            <Text
+              style={ {
+                textAlign: 'right',
+                fontSize: 20,
+                fontWeight: '600',
+                color: Colors.white,
+              } }>
+              Hey, Selena
+            </Text>
+            <Text
+              style={ {
+                textAlign: 'right',
+                fontSize: 15,
+                color: Colors.white,
+                fontWeight: '100',
+              } }>
+              Welcom back
+            </Text>
+          </View>
+          <View style={ [
+            styles.container,
+            {
+              flexDirection: 'column',
+              justifyContent: 'flex-start',
+            },
+          ] }>
+            <Text
+              style={ {
+                fontSize: 20,
+                fontWeight: '200',
+                color: Colors.white,
+              } }>
+              Total Balance
+            </Text>
+            <Text
+              style={ {
+                fontSize: 37,
+                fontWeight: '800',
+                color: Colors.white,
+              } }>
+              $5 194 382
+            </Text>
+          </View>
+
+          <View
+            style={ [
+              styles.box,
+              {
+                flexDirection: 'row',
+              },
+            ] }>
+            <MyButton message={ 'Transfer' } color={ Colors.black } bgColor={ '#ffa500' } />
+            <MyButton message={ 'Request' } color={ Colors.white } bgColor={ '#1F2123' } />
+          </View>
+          <View style={ [
+            styles.box,
+            {
+              height: 100,
+            },
+          ] } />
+          <View style={ [
+            styles.box,
+            {
+              flexDirection: 'row',
+              alignItems: 'flex-end',
+              justifyContent: 'space-between',
+            },
+          ] }>
+            <Text style={ { fontSize: 36, fontWeight: 600, color: Colors.white } }>Wallets</Text>
+            <Text style={ { fontSize: 18, color: Colors.light } }>View All</Text>
+          </View>
+          {/* SizedBox */ }
+          <View style={ [
+            styles.box,
+            {
+              height: 10,
+            },
+          ] } />
+          {/* Container */ }
+          <View style={ [
+            // decoration: BoxDecoration
+            styles.container,
+            {
+              backgroundColor: Colors.darker,
+              borderRadius: 10,
+            },
+          ] }>
+            {/* child: Padding */ }
+            <View style={ [
+              // BoxDecoration
+              {
+                padding: 10,
+              },
+            ] }>
+              {/* child: Row */ }
+              <View style={ [
+                styles.box,
+                {
+                  flexDirection: 'row',
+                  borderRadius: 10,
+                  alignItems: 'flex-end',
+                },
+              ] }>
+                {/* children */ }
+                <View style={ [
+                  styles.box,
+                  {
+                    flexDirection: 'column',
+                  },
+                ] }>
+                  <Text style={ { fontSize: 36, fontWeight: 600, color: Colors.white } }>Euro</Text>
+                  {/* Columns */ }
+                  <View style={ [
+                    styles.box,
+                    {
+                      flexDirection: 'row',
+                      alignItems: 'flex-end',
+                    },
+                  ] }>
+                    <Text style={ { fontSize: 20, color: Colors.white } }>6 428</Text>
+                    <Text style={ { fontSize: 18, color: Colors.light, paddingLeft: 10 } }>EUR</Text>
+                  </View>
+                </View>
+                <FontAwesome style={ [{ transform: [{ scale: 2.2 }], transformOrigin: '20px 30px' }] } size={ 88 } name="euro" color={ Colors.white } />
+              </View>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView >
+  );
+}
 
 export default App;
